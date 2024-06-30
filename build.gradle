@@ -13,12 +13,57 @@ repositories {
 
 dependencies {
 
-    annotationProcessor("io.micronaut:micronaut-http-validation")
-    annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
-    implementation("io.micronaut.serde:micronaut-serde-jackson")
-    compileOnly("io.micronaut:micronaut-http-client")
+    implementation 'org.projectlombok:lombok:1.18.26'
+    testImplementation 'org.testng:testng:7.7.0'
+    annotationProcessor("org.projectlombok:lombok")
+    annotationProcessor("io.micronaut.data:micronaut-data-processor")
+    annotationProcessor("io.micronaut.validation:micronaut-validation-processor")
+    annotationProcessor("io.micronaut.openapi:micronaut-openapi")
+    implementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("jakarta.annotation:jakarta.annotation-api")
     runtimeOnly("ch.qos.logback:logback-classic")
-    testImplementation("io.micronaut:micronaut-http-client")
+    implementation("io.micronaut.validation:micronaut-validation")
+    implementation 'org.json:json:20230227'
+    implementation("io.swagger.core.v3:swagger-annotations")
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:2.14.2'
+    implementation("io.micronaut.rxjava3:micronaut-rxjava3")
+    implementation "javax.annotation:javax.annotation-api"
+    implementation "org.jdbi:jdbi3-postgres:3.6.0"
+    implementation 'javax.persistence:javax.persistence-api:2.2'
+    implementation 'io.hypersistence:hypersistence-utils-hibernate-63:3.7.0'
+    implementation("io.micronaut.beanvalidation:micronaut-hibernate-validator")
+    implementation("io.micronaut.data:micronaut-data-hibernate-jpa")
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-xml:2.13.4'
+    implementation "io.micronaut.sql:micronaut-jdbc-hikari"
+    implementation 'com.amazonaws:aws-java-sdk-s3'
+    runtimeOnly("org.postgresql:postgresql")
+    testImplementation("org.testcontainers:junit-jupiter")
+    testImplementation("org.testcontainers:postgresql")
+    testImplementation("org.testcontainers:testcontainers")
+    implementation("io.micronaut.rxjava3:micronaut-rxjava3")
+    implementation("io.micronaut.rxjava3:micronaut-rxjava3-http-client")
+    testImplementation group: 'org.mockito', name: 'mockito-junit-jupiter', version: '4.6.1'
+    implementation 'software.amazon.awscdk:glue:1.204.0'
+    implementation("io.micronaut:micronaut-management")
+    compileOnly("io.micronaut.micrometer:micronaut-micrometer-core")
+    implementation 'com.opencsv:opencsv:5.7.1'
+    implementation 'javax.ws.rs:javax.ws.rs-api:2.1.1'
+    implementation group: 'org.quartz-scheduler', name: 'quartz', version: '2.3.2'
+    implementation group: 'com.amazonaws', name: 'aws-java-sdk-sqs', version: '1.12.478'
+    implementation 'io.micronaut.micrometer:micronaut-micrometer-registry-prometheus'
+    implementation 'io.micrometer:micrometer-registry-prometheus:1.12.3'
+    implementation group: 'software.amazon.awssdk', name: 'eventbridge', version: '2.25.29'
+    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.1000')
+    implementation("io.micronaut.security:micronaut-security-jwt")
+    annotationProcessor("io.micronaut.security:micronaut-security-annotations")
+    testImplementation 'com.h2database:h2:2.1.214'
+    testImplementation group: 'org.testcontainers', name: 'testcontainers', version: '1.18.3'
+    testImplementation "org.testcontainers:localstack:1.18.3"
+    implementation group: 'org.redisson', name: 'redisson-micronaut-30', version: '3.23.0'
+    testImplementation group: 'it.ozimov', name: 'embedded-redis', version: '0.7.1'
+    implementation group: 'software.amazon.awssdk', name: 'auth', version: '2.19.17'
+    implementation 'software.amazon.awssdk:s3:2.16.42'
 }
 
 
@@ -40,8 +85,6 @@ micronaut {
         annotations("com.example.*")
     }
     aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
         optimizeServiceLoading = false
         convertYamlToJava = false
         precomputeOperations = true
